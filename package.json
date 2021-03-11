@@ -1,0 +1,20 @@
+{
+  "name": "crux",
+  "version": "1.0.0",
+  "description": "the crux of all the js projects",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SKYCRATE-ltd/crux.git"
+  },
+  "author": "Graham Robertson | SKYCRATE ltd",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/SKYCRATE-ltd/crux/issues"
+  },
+  "homepage": "https://github.com/SKYCRATE-ltd/crux#readme"
+}
