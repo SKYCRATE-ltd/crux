@@ -9,7 +9,7 @@ export const entries = obj => Object.entries(obj);
 export const extend = (obj, ...others) => Object.assign(obj, ...others);
 export const concat = (...objs) => extend({}, ...objs);
 export const apply = (obj, values) => entries(values || {}).forEach(([key, val]) => obj[key] = val) || obj;
-export const object = map => map.reduce((obj, [key, value]) => {
+export const object = map => console.log(map) || map.reduce((obj, [key, value]) => {
 	obj[key] = value;
 	return obj;
 }, {});
