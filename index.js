@@ -13,7 +13,7 @@ export const apply = (obj, values) => entries(values || {}).forEach(([key, val])
 // 	obj[key] = value;
 // 	return obj;
 // }, {});
-export const object = map => Object.fromEntries(new Map(map));
+export const object = map => Object.fromEntries(map);
 export const iterator = (obj, iterator) => object(iterator(entries(obj)) || []);
 export const iterate = (obj, iter = DO_NOTHING) => iterator(obj, entries => entries.forEach(iter));
 export const map = (obj, mapper = DO_NOTHING) => iterator(obj, entries => entries.map(mapper));
