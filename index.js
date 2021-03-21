@@ -9,11 +9,11 @@ export const entries = obj => Object.entries(obj);
 export const extend = (obj, ...others) => Object.assign(obj, ...others);
 export const concat = (...objs) => extend({}, ...objs);
 export const apply = (obj, values) => entries(values || {}).forEach(([key, val]) => obj[key] = val) || obj;
-export const object = map => console.log(map) || map.reduce((obj, [key, value]) => {
-	obj[key] = value;
-	return obj;
-}, {});
-// export const object = map => Object.fromEntries(map);
+// export const object = map => map.reduce((obj, [key, value]) => {
+// 	obj[key] = value;
+// 	return obj;
+// }, {});
+export const object = map => Object.fromEntries(new Map(map));
 export const iterator = (obj, iterator) => object(iterator(entries(obj)) || []);
 export const iterate = (obj, iter = DO_NOTHING) => iterator(obj, entries => entries.forEach(iter));
 export const map = (obj, mapper = DO_NOTHING) => iterator(obj, entries => entries.map(mapper));
