@@ -1,4 +1,3 @@
-const AT = '@';
 const SLASH = '/';
 const DO_NOTHING = x => x;
 
