@@ -38,7 +38,7 @@ export const has = (obj, key) => Object.getOwnPropertyNames(obj).includes(key);
 export const pop = args => [args.pop(), ...args];
 export const copy_object = obj => map(obj, ([key, val]) => [key, copy(val)]);
 export const copy_array = array => array.map(copy);
-export const copy = item => is.literal(item) ? item : item instanceof Array ? cp_array(item) : cp_object(item);
+export const copy = item => is.literal(item) ? item : item instanceof Array ? copy_array(item) : copy_object(item);
 
 export const is = {
 	...object([
@@ -51,7 +51,7 @@ export const is = {
 		"undefined",
 	].map(key => [key, val => typeof val === key])),
 	literal: x => is.object(x) ? x.constructor === Object : !is.function(x),
-	constructable: T => !!T.prototype && T.name,
+	constructable: T => !!(T.prototype && T.name),
 	// constructable: T => !!T.prototype && T.name && !T.name.startsWith(AT),
 	global: that => is.undefined(that) || that === globalThis,
 	either: (a, b) => is.undefined(a) ? b : a,
@@ -62,7 +62,7 @@ export const create = extend(
 	(props, proto = null) => Object.create(proto, props),
 	{
 		property: (
-			value = null,
+			value = undefined,
 			enumerable = false,
 			writable = false,
 			configurable = true
