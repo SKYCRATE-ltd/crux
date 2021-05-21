@@ -20,7 +20,7 @@ export const filter = (obj, filter = x => true) => iterator(obj, entries => entr
 export const sort = (obj, sorter = DO_NOTHING, _default = []) =>
 	[...entries(obj).reduce(
 		(list, pair) => {
-			const [target, value] = sorter(...pair);
+			const [target, value] = sorter(pair);
 			if (target > -1)
 				(list[target] = list[target] || []).push([pair[0], value]);
 			return list;
